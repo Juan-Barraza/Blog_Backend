@@ -27,3 +27,5 @@ admin.site.register(Category)
 admin.site.register(Comment)
 admin.site.register(Multimedia)
 admin.site.register(Articulo)
+
+
