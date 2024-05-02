@@ -11,5 +11,5 @@ class Comment(models.Model):
     
     
     def __str__(self):
-        return f'Comentario de {self.autor.username} en {self.articulo.titulo}'
+        return f'Comentario de {self.user.username} en {self.articulo.title}'
     

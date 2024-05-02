@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 class User2Serializer(serializers.Serializer):
     id = serializers.IntegerField()
-    name = serializers.CharField(max_length=50)
+    username = serializers.CharField(max_length=50)
     role = serializers.CharField(max_length=20)
     
     def to_internal_value(self, data):
@@ -14,7 +14,7 @@ class User2Serializer(serializers.Serializer):
     
     def to_representation(self, instance):
         return {
-            'name': instance.name,
+            'username': instance.username,
             'role': instance.role
         }
     

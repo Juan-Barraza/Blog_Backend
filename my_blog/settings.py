@@ -56,10 +56,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'my_blog.urls'
 
-AUTHENTICATION_BACKENDS = [
-    'blog.backends.backend.EmailAuthBackend',
-    'django.contrib.auth.backends.ModelBackend',
-]
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 AUTH_USER_MODEL = 'blog.User'
 

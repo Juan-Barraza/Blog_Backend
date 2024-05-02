@@ -15,10 +15,14 @@ class LoginView(APIView):
         if serializer.is_valid():
             email = serializer.validated_data['email']
             password = serializer.validated_data['password']
+            print(serializer.validated_data)
             user = authenticate(request, email=email, password=password)
-            print(user)
+            print("user", user)
             if user is not None:
-               token = Token.objects.create(user=user)
-            return Response({'token': token.key}, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+                token, _ = Token.objects.get_or_create(user=user)
+                return Response({'token': token.key}, status=status.HTTP_200_OK)
+            else:
+                return Response({'error': 'Email or password incorrect'}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
