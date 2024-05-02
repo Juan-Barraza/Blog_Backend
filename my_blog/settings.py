@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'blog',
     'rest_framework',
     'rest_framework_simplejwt',
-    'rest_framework.authtoken',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,7 +57,7 @@ ROOT_URLCONF = 'my_blog.urls'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
 

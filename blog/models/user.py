@@ -4,8 +4,9 @@ from blog.managers import UserManager
 
 
 class User(AbstractUser):
-    email = models.CharField(max_length=30, unique=True)
-    role = models.CharField(max_length=20)
+    username = models.CharField(max_length=255)
+    email = models.CharField(max_length=255, unique=True)
+    role = models.CharField(max_length=50)
     
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
