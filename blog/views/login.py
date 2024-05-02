@@ -28,6 +28,6 @@ class LoginView(APIView):
 
                 return Response(token_data, status=status.HTTP_200_OK)
             else:
-                return Response({"error": "email or password incorrect"}, status=status.HTTP_401_UNAUTHORIZED)
+                return Response({"error": "email or password incorrect"}, status=status.HTTP_406_NOT_ACCEPTABLE)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
